@@ -1,5 +1,6 @@
 var _ = require('lodash'),
-	assert = require('assert');
+	assert = require('assert'),
+	Point = require('point');
 
 var dirs = 'nesw';
 
