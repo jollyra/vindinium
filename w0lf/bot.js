@@ -1,6 +1,6 @@
 var _ = require('lodash'),
 	assert = require('assert'),
-	Point = require('point');
+	Point = require('./point');
 
 var dirs = 'nesw';
 
@@ -14,7 +14,6 @@ function getTile(map, x, y) {
 function pathFind(map, p1, p0) {
 	var p = p0;
 	while (!p1.eql(p)) {
-		// BFS for p1 from p0
 	}
 }
 
@@ -26,6 +25,10 @@ function bot(state, callback) {
 	callback(null, dir);
 };
 
-module.exports = bot;
+module.exports = {
+	bot: bot,
+	pathFind: pathFind
+};
+
 if (require.main === module)
 	require('vindinium-client').cli(bot);
