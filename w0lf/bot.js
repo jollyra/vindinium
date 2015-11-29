@@ -1,14 +1,11 @@
 var _ = require('lodash'),
-	assert = require('assert'),
+	assert = require('chai').assert,
 	Point = require('./point');
 
 var dirs = 'nesw';
 
 function getTile(map, x, y) {
-	var size = map.size;
-	var tiles = map.tiles;
-	assert.strictEqual(x < size && y < size, true, 'coordinates out of bounds');
-	return tiles[y * size + x];
+	assert.equal(tileIdx < map.tiles.length, true, 'coordinates out of bounds');
 }
 
 function pathFind(map, p1, p0) {
@@ -17,17 +14,11 @@ function pathFind(map, p1, p0) {
 	}
 }
 
-function bot(state, callback) {
-	console.log(state);
-	parseMap(state.board);
-	var i = Math.floor(Math.random() * 4);
-	var dir = dirs[i];
-	callback(null, dir);
-};
-
 module.exports = {
 	bot: bot,
-	pathFind: pathFind
+	// Exported for unit testing
+	pathFind: pathFind,
+	getTile: getTile,
 };
 
 if (require.main === module)
