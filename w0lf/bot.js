@@ -4,6 +4,14 @@ var _ = require('lodash'),
 
 var dirs = 'nesw';
 
+function bot(state, callback) {
+	console.log(state);
+	parseMap(state.board);
+	var i = Math.floor(Math.random() * 4);
+	var dir = dirs[i];
+	callback(null, dir);
+};
+
 /*
  * Each tile is represented by two characters, and the map is a
  * one-dimensional array or a 'stick' of tiles.
