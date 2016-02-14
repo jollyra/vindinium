@@ -1,6 +1,6 @@
 var _ = require('lodash'),
 	assert = require('chai').assert,
-	Point = require('./point');
+	Tiles = require('tile-stick');
 
 var dirs = 'nesw';
 
